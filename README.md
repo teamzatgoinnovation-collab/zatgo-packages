@@ -2,9 +2,11 @@
 
 Shared libraries for all React (Next.js + Electron) apps.
 
+**Remote:** https://github.com/teamzatgoinnovation-collab/zatgo-packages
+
 | Package | Name | Role |
 |---------|------|------|
-| [`ui/`](ui/) | `@zatgo/ui` | shadcn/ui + `AppShellLayout` / `ErpnextLoginCard` |
+| [`ui/`](ui/) | `@zatgo/ui` | shadcn/ui kit + AppShell / login / DataTable / CommandPalette |
 | [`ts-sdk/`](ts-sdk/) | `@zatgo/sdk` | ERPNext API client + generated method maps |
 | [`erpnext/`](erpnext/) | `@zatgo/erpnext` | Session/BFF helpers, `ZatGoApi`, `createCallZatGoApi` |
 | [`config/`](config/) | `@zatgo/config` | TS / Tailwind presets (incl. `--app-sidebar*`) |
@@ -15,3 +17,5 @@ Shared libraries for all React (Next.js + Electron) apps.
 | [`icons/`](icons/) | `@zatgo/icons` | Lucide + brand icons |
 
 Flutter SDK remains at [`../SharedSDK/dart_sdk`](../SharedSDK/dart_sdk/).
+
+Develop from WorkSpace root (`pnpm install`) so `"workspace:*"` resolves.
