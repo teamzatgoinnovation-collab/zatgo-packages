@@ -12,6 +12,10 @@ export const TrackerApi = {
   tasksGet: "tracker.api.v1.tasks.get_task",
   tasksCreate: "tracker.api.v1.tasks.create_task",
   updateTaskStatus: "tracker.api.v1.tasks.update_status",
+  tasksSetProgress: "tracker.api.v1.tasks.set_progress",
+  tasksSubmitForReview: "tracker.api.v1.tasks.submit_for_review",
+  tasksApprove: "tracker.api.v1.tasks.approve",
+  tasksRequestRework: "tracker.api.v1.tasks.request_rework",
   tasksAssign: "tracker.api.v1.tasks.assign",
   ticketsList: "tracker.api.v1.tickets.list_tickets",
   ticketsGet: "tracker.api.v1.tickets.get_ticket",
@@ -33,6 +37,10 @@ export const TrackerApi = {
   filtersDeletePreset: "tracker.api.v1.filters.delete_preset",
   hoursByProject: "tracker.api.v1.reports.hours_by_project",
   hoursByUser: "tracker.api.v1.reports.hours_by_user",
+  timesheetsListTeamDrafts: "tracker.api.v1.timesheets.list_team_drafts",
+  timesheetsSubmitTeam: "tracker.api.v1.timesheets.submit_team",
+  projectsClose: "tracker.api.v1.projects.close_project",
+  auditListFor: "tracker.api.v1.audit.list_for_doc",
 } as const;
 
 export const ZatGoApi = {
