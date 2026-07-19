@@ -2,25 +2,40 @@
 /* Source: SharedSDK/openapi/_generated/whitelist_methods.json */
 
 
-/** Nested method map for `tracker.api.v1.*` (21 methods). */
+/** Nested method map for `tracker.api.v1.*` (32 methods). */
 export const TrackerApi = {
   activity: {
     active: "tracker.api.v1.activity.active",
     next: "tracker.api.v1.activity.next",
     pause: "tracker.api.v1.activity.pause",
+    runningNow: "tracker.api.v1.activity.running_now",
     start: "tracker.api.v1.activity.start",
     stop: "tracker.api.v1.activity.stop",
+    },
+  filters: {
+    deletePreset: "tracker.api.v1.filters.delete_preset",
+    getPresets: "tracker.api.v1.filters.get_presets",
+    savePreset: "tracker.api.v1.filters.save_preset",
+    setLast: "tracker.api.v1.filters.set_last",
     },
   hierarchy: {
     assign: "tracker.api.v1.hierarchy.assign",
     canAssign: "tracker.api.v1.hierarchy.can_assign",
     myTree: "tracker.api.v1.hierarchy.my_tree",
+    orgTree: "tracker.api.v1.hierarchy.org_tree",
+    seedDemo: "tracker.api.v1.hierarchy.seed_demo",
+    seedDemoWork: "tracker.api.v1.hierarchy.seed_demo_work",
+    updateEmployeeOrg: "tracker.api.v1.hierarchy.update_employee_org",
     },
   projects: {
     addMember: "tracker.api.v1.projects.add_member",
     createProject: "tracker.api.v1.projects.create_project",
     getProject: "tracker.api.v1.projects.get_project",
     listProjects: "tracker.api.v1.projects.list_projects",
+    },
+  reports: {
+    hoursByProject: "tracker.api.v1.reports.hours_by_project",
+    hoursByUser: "tracker.api.v1.reports.hours_by_user",
     },
   tasks: {
     assign: "tracker.api.v1.tasks.assign",
@@ -39,7 +54,7 @@ export const TrackerApi = {
 
 export type TrackerApi = typeof TrackerApi;
 
-/** Nested method map for `zatgo_core.api.v1.*` (110 methods). */
+/** Nested method map for `zatgo_core.api.v1.*` (113 methods). */
 export const ZatGoCoreApi = {
   accounting: {
     health: {
@@ -142,6 +157,11 @@ export const ZatGoCoreApi = {
       me: "zatgo_core.api.v1.delivery.tracking.me",
       ping: "zatgo_core.api.v1.delivery.tracking.ping",
         },
+    },
+  devices: {
+    registerToken: "zatgo_core.api.v1.devices.register_token",
+    sendToUser: "zatgo_core.api.v1.devices.send_to_user",
+    unregisterToken: "zatgo_core.api.v1.devices.unregister_token",
     },
   documentation: {
     health: {
@@ -262,15 +282,26 @@ export const WhitelistMethods = {
   activityActive: "tracker.api.v1.activity.active",
   activityNext: "tracker.api.v1.activity.next",
   activityPause: "tracker.api.v1.activity.pause",
+  activityRunningNow: "tracker.api.v1.activity.running_now",
   activityStart: "tracker.api.v1.activity.start",
   activityStop: "tracker.api.v1.activity.stop",
+  filtersDeletePreset: "tracker.api.v1.filters.delete_preset",
+  filtersGetPresets: "tracker.api.v1.filters.get_presets",
+  filtersSavePreset: "tracker.api.v1.filters.save_preset",
+  filtersSetLast: "tracker.api.v1.filters.set_last",
   hierarchyAssign: "tracker.api.v1.hierarchy.assign",
   hierarchyCanAssign: "tracker.api.v1.hierarchy.can_assign",
   hierarchyMyTree: "tracker.api.v1.hierarchy.my_tree",
+  hierarchyOrgTree: "tracker.api.v1.hierarchy.org_tree",
+  hierarchySeedDemo: "tracker.api.v1.hierarchy.seed_demo",
+  hierarchySeedDemoWork: "tracker.api.v1.hierarchy.seed_demo_work",
+  hierarchyUpdateEmployeeOrg: "tracker.api.v1.hierarchy.update_employee_org",
   projectsAddMember: "tracker.api.v1.projects.add_member",
   projectsCreateProject: "tracker.api.v1.projects.create_project",
   projectsGetProject: "tracker.api.v1.projects.get_project",
   projectsListProjects: "tracker.api.v1.projects.list_projects",
+  reportsHoursByProject: "tracker.api.v1.reports.hours_by_project",
+  reportsHoursByUser: "tracker.api.v1.reports.hours_by_user",
   tasksAssign: "tracker.api.v1.tasks.assign",
   tasksCreateTask: "tracker.api.v1.tasks.create_task",
   tasksGetTask: "tracker.api.v1.tasks.get_task",
@@ -338,6 +369,9 @@ export const WhitelistMethods = {
   deliveryStopsUpdate: "zatgo_core.api.v1.delivery.stops.update",
   deliveryTrackingMe: "zatgo_core.api.v1.delivery.tracking.me",
   deliveryTrackingPing: "zatgo_core.api.v1.delivery.tracking.ping",
+  devicesRegisterToken: "zatgo_core.api.v1.devices.register_token",
+  devicesSendToUser: "zatgo_core.api.v1.devices.send_to_user",
+  devicesUnregisterToken: "zatgo_core.api.v1.devices.unregister_token",
   documentationHealthPing: "zatgo_core.api.v1.documentation.health.ping",
   documentationHealthStatus: "zatgo_core.api.v1.documentation.health.status",
   documentationMetaGet: "zatgo_core.api.v1.documentation.meta.get",

@@ -14,6 +14,10 @@ export type Args_TrackerActivityPause = {
   name?: string;
 };
 
+export type Args_TrackerActivityRunning_now = {
+  company?: string;
+};
+
 export type Args_TrackerActivityStart = {
   task?: string;
   project?: string;
@@ -22,6 +26,26 @@ export type Args_TrackerActivityStart = {
 
 export type Args_TrackerActivityStop = {
   name?: string;
+};
+
+export type Args_TrackerFiltersDelete_preset = {
+  id?: string;
+  name?: string;
+};
+
+export type Args_TrackerFiltersGet_presets = Record<string, never>;
+
+export type Args_TrackerFiltersSave_preset = {
+  name: string;
+  scope?: string;
+  project?: string;
+  status?: string;
+};
+
+export type Args_TrackerFiltersSet_last = {
+  scope?: string;
+  project?: string;
+  status?: string;
 };
 
 export type Args_TrackerHierarchyAssign = {
@@ -36,6 +60,23 @@ export type Args_TrackerHierarchyCan_assign = {
 };
 
 export type Args_TrackerHierarchyMy_tree = Record<string, never>;
+
+export type Args_TrackerHierarchyOrg_tree = Record<string, never>;
+
+export type Args_TrackerHierarchySeed_demo = {
+  company?: string;
+};
+
+export type Args_TrackerHierarchySeed_demo_work = {
+  company?: string;
+};
+
+export type Args_TrackerHierarchyUpdate_employee_org = {
+  employee: string;
+  tracker_org_role?: string;
+  reports_to?: string;
+  tracker_role?: string;
+};
 
 export type Args_TrackerProjectsAdd_member = {
   project: string;
@@ -57,6 +98,22 @@ export type Args_TrackerProjectsList_projects = {
   page?: string;
   page_size?: string;
   status?: string;
+};
+
+export type Args_TrackerReportsHours_by_project = {
+  from_date?: string;
+  to_date?: string;
+  company?: string;
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_TrackerReportsHours_by_user = {
+  from_date?: string;
+  to_date?: string;
+  company?: string;
+  page?: string;
+  page_size?: string;
 };
 
 export type Args_TrackerTasksAssign = {
@@ -84,7 +141,9 @@ export type Args_TrackerTasksList_tasks = {
   project?: string;
   status?: string;
   mine?: string;
+  team?: string;
   parent_task?: string;
+  tree?: string;
 };
 
 export type Args_TrackerTasksUpdate_status = {
@@ -115,6 +174,8 @@ export type Args_TrackerTicketsList_tickets = {
   page_size?: string;
   project?: string;
   status?: string;
+  mine?: string;
+  team?: string;
 };
 
 export type Args_Zatgo_coreAccountingHealthPing = Record<string, never>;
@@ -378,6 +439,23 @@ export type Args_Zatgo_coreDeliveryTrackingPing = {
   speed_kmh?: string;
 };
 
+export type Args_Zatgo_coreDevicesRegister_token = {
+  token: string;
+  platform?: string;
+  app_id?: string;
+};
+
+export type Args_Zatgo_coreDevicesSend_to_user = {
+  user: string;
+  title: string;
+  body: string;
+  data?: string;
+};
+
+export type Args_Zatgo_coreDevicesUnregister_token = {
+  token: string;
+};
+
 export type Args_Zatgo_coreDocumentationHealthPing = Record<string, never>;
 
 export type Args_Zatgo_coreDocumentationHealthStatus = Record<string, never>;
@@ -556,15 +634,26 @@ export type WhitelistArgs = {
   "tracker.api.v1.activity.active": Args_TrackerActivityActive;
   "tracker.api.v1.activity.next": Args_TrackerActivityNext;
   "tracker.api.v1.activity.pause": Args_TrackerActivityPause;
+  "tracker.api.v1.activity.running_now": Args_TrackerActivityRunning_now;
   "tracker.api.v1.activity.start": Args_TrackerActivityStart;
   "tracker.api.v1.activity.stop": Args_TrackerActivityStop;
+  "tracker.api.v1.filters.delete_preset": Args_TrackerFiltersDelete_preset;
+  "tracker.api.v1.filters.get_presets": Args_TrackerFiltersGet_presets;
+  "tracker.api.v1.filters.save_preset": Args_TrackerFiltersSave_preset;
+  "tracker.api.v1.filters.set_last": Args_TrackerFiltersSet_last;
   "tracker.api.v1.hierarchy.assign": Args_TrackerHierarchyAssign;
   "tracker.api.v1.hierarchy.can_assign": Args_TrackerHierarchyCan_assign;
   "tracker.api.v1.hierarchy.my_tree": Args_TrackerHierarchyMy_tree;
+  "tracker.api.v1.hierarchy.org_tree": Args_TrackerHierarchyOrg_tree;
+  "tracker.api.v1.hierarchy.seed_demo": Args_TrackerHierarchySeed_demo;
+  "tracker.api.v1.hierarchy.seed_demo_work": Args_TrackerHierarchySeed_demo_work;
+  "tracker.api.v1.hierarchy.update_employee_org": Args_TrackerHierarchyUpdate_employee_org;
   "tracker.api.v1.projects.add_member": Args_TrackerProjectsAdd_member;
   "tracker.api.v1.projects.create_project": Args_TrackerProjectsCreate_project;
   "tracker.api.v1.projects.get_project": Args_TrackerProjectsGet_project;
   "tracker.api.v1.projects.list_projects": Args_TrackerProjectsList_projects;
+  "tracker.api.v1.reports.hours_by_project": Args_TrackerReportsHours_by_project;
+  "tracker.api.v1.reports.hours_by_user": Args_TrackerReportsHours_by_user;
   "tracker.api.v1.tasks.assign": Args_TrackerTasksAssign;
   "tracker.api.v1.tasks.create_task": Args_TrackerTasksCreate_task;
   "tracker.api.v1.tasks.get_task": Args_TrackerTasksGet_task;
@@ -632,6 +721,9 @@ export type WhitelistArgs = {
   "zatgo_core.api.v1.delivery.stops.update": Args_Zatgo_coreDeliveryStopsUpdate;
   "zatgo_core.api.v1.delivery.tracking.me": Args_Zatgo_coreDeliveryTrackingMe;
   "zatgo_core.api.v1.delivery.tracking.ping": Args_Zatgo_coreDeliveryTrackingPing;
+  "zatgo_core.api.v1.devices.register_token": Args_Zatgo_coreDevicesRegister_token;
+  "zatgo_core.api.v1.devices.send_to_user": Args_Zatgo_coreDevicesSend_to_user;
+  "zatgo_core.api.v1.devices.unregister_token": Args_Zatgo_coreDevicesUnregister_token;
   "zatgo_core.api.v1.documentation.health.ping": Args_Zatgo_coreDocumentationHealthPing;
   "zatgo_core.api.v1.documentation.health.status": Args_Zatgo_coreDocumentationHealthStatus;
   "zatgo_core.api.v1.documentation.meta.get": Args_Zatgo_coreDocumentationMetaGet;
