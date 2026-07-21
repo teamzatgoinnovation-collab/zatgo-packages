@@ -99,6 +99,8 @@ export const ZatGoApi = {
     status: ZatGoCoreApi.warehouse.health.status,
     stockList: ZatGoCoreApi.warehouse.stock.list,
     stockGet: ZatGoCoreApi.warehouse.stock.get,
+    itemsList: "zatgo_core.api.v1.warehouse.items.list",
+    warehousesList: "zatgo_core.api.v1.warehouse.warehouses.list",
   },
   crm: {
     ping: ZatGoCoreApi.crm.health.ping,

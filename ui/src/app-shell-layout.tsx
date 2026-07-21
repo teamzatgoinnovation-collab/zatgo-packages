@@ -12,6 +12,8 @@ export type AppShellNavItem = {
   label: string;
   icon: AppShellIcon;
   end?: boolean;
+  /** When set, renders a section label above the item when it differs from the previous item. */
+  section?: string;
 };
 
 export type AppShellLinkProps = {
@@ -102,11 +104,18 @@ export function AppShellLayout({
           ) : null}
         </div>
         <nav className="flex flex-1 flex-col gap-0.5 p-2">
-          {nav.map((item) => {
+          {nav.map((item, index) => {
             const Icon = item.icon;
             const active = isNavActive(pathname, item.href, item.end);
+            const prevSection = index > 0 ? nav[index - 1]?.section : undefined;
+            const showSection = Boolean(item.section && item.section !== prevSection && !collapsed);
             return (
               <div key={item.href}>
+                {showSection ? (
+                  <p className="px-3 pb-1 pt-3 text-[10px] font-medium uppercase tracking-wide text-[var(--color-muted-foreground)]">
+                    {item.section}
+                  </p>
+                ) : null}
                 {renderLink({
                   href: item.href,
                   end: item.end,
