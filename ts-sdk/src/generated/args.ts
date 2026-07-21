@@ -4,11 +4,7 @@
 
 export type Args_TrackerActivityActive = Record<string, never>;
 
-export type Args_TrackerActivityNext = {
-  task: string;
-  project?: string;
-  activity_type?: string;
-};
+export type Args_TrackerActivityActivity_types = Record<string, never>;
 
 export type Args_TrackerActivityPause = {
   name?: string;
@@ -26,6 +22,18 @@ export type Args_TrackerActivityStart = {
 
 export type Args_TrackerActivityStop = {
   name?: string;
+};
+
+export type Args_TrackerAuditFeed = {
+  limit?: string;
+  action?: string;
+  scope?: string;
+};
+
+export type Args_TrackerAuditList_for_doc = {
+  doctype: string;
+  name: string;
+  limit?: string;
 };
 
 export type Args_TrackerFiltersDelete_preset = {
@@ -55,8 +63,24 @@ export type Args_TrackerHierarchyAssign = {
   user?: string;
 };
 
+export type Args_TrackerHierarchyAssign_org_member = {
+  email: string;
+  full_name: string;
+  company: string;
+  role: string;
+  branch?: string;
+  reports_to?: string;
+};
+
 export type Args_TrackerHierarchyCan_assign = {
   assignee: string;
+};
+
+export type Args_TrackerHierarchyCreate_top_member = {
+  email: string;
+  full_name: string;
+  company: string;
+  branch?: string;
 };
 
 export type Args_TrackerHierarchyMy_tree = Record<string, never>;
@@ -84,6 +108,10 @@ export type Args_TrackerProjectsAdd_member = {
   users?: string;
 };
 
+export type Args_TrackerProjectsClose_project = {
+  name: string;
+};
+
 export type Args_TrackerProjectsCreate_project = {
   project_name: string;
   company?: string;
@@ -100,7 +128,31 @@ export type Args_TrackerProjectsList_projects = {
   status?: string;
 };
 
+export type Args_TrackerReportsHours_by_activity_type = {
+  from_date?: string;
+  to_date?: string;
+  company?: string;
+  page?: string;
+  page_size?: string;
+};
+
 export type Args_TrackerReportsHours_by_project = {
+  from_date?: string;
+  to_date?: string;
+  company?: string;
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_TrackerReportsHours_by_task = {
+  from_date?: string;
+  to_date?: string;
+  company?: string;
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_TrackerReportsHours_by_timesheet = {
   from_date?: string;
   to_date?: string;
   company?: string;
@@ -116,10 +168,21 @@ export type Args_TrackerReportsHours_by_user = {
   page_size?: string;
 };
 
-export type Args_TrackerTasksAssign = {
+export type Args_TrackerReportsHours_detail = {
+  from_date?: string;
+  to_date?: string;
+  company?: string;
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_TrackerReportsOverview = {
+  status?: string;
+};
+
+export type Args_TrackerTasksApprove = {
   name: string;
-  users?: string;
-  user?: string;
+  note?: string;
 };
 
 export type Args_TrackerTasksCreate_task = {
@@ -140,10 +203,26 @@ export type Args_TrackerTasksList_tasks = {
   page_size?: string;
   project?: string;
   status?: string;
+  stage?: string;
   mine?: string;
   team?: string;
   parent_task?: string;
   tree?: string;
+  review_queue?: string;
+};
+
+export type Args_TrackerTasksRequest_rework = {
+  name: string;
+  note: string;
+};
+
+export type Args_TrackerTasksSet_progress = {
+  name: string;
+};
+
+export type Args_TrackerTasksSubmit_for_review = {
+  name: string;
+  note?: string;
 };
 
 export type Args_TrackerTasksUpdate_status = {
@@ -178,9 +257,54 @@ export type Args_TrackerTicketsList_tickets = {
   team?: string;
 };
 
+export type Args_TrackerTimesheetsList_team_drafts = {
+  from_date?: string;
+  to_date?: string;
+};
+
+export type Args_TrackerTimesheetsSubmit_team = {
+  names?: string;
+  from_date?: string;
+  to_date?: string;
+};
+
+export type Args_Zatgo_coreAccountingCustomersCreate = {
+  customer_name: string;
+  customer_type?: string;
+  customer_group?: string;
+  territory?: string;
+  email?: string;
+  phone?: string;
+};
+
+export type Args_Zatgo_coreAccountingCustomersGet = {
+  name: string;
+};
+
+export type Args_Zatgo_coreAccountingCustomersList = {
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingCustomersUpdate = {
+  name: string;
+  values?: string;
+};
+
+export type Args_Zatgo_coreAccountingDashboardSummary = Record<string, never>;
+
 export type Args_Zatgo_coreAccountingHealthPing = Record<string, never>;
 
 export type Args_Zatgo_coreAccountingHealthStatus = Record<string, never>;
+
+export type Args_Zatgo_coreAccountingInvoicesCreate = {
+  customer: string;
+  items?: string;
+  company?: string;
+  posting_date?: string;
+  due_date?: string;
+  remarks?: string;
+};
 
 export type Args_Zatgo_coreAccountingInvoicesGet = {
   name: string;
@@ -189,6 +313,137 @@ export type Args_Zatgo_coreAccountingInvoicesGet = {
 export type Args_Zatgo_coreAccountingInvoicesList = {
   page?: string;
   page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingInvoicesList_items_catalog = {
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingInvoicesSubmit = {
+  name: string;
+};
+
+export type Args_Zatgo_coreAccountingJournalsCreate = {
+  accounts?: string;
+  company?: string;
+  posting_date?: string;
+  user_remark?: string;
+  voucher_type?: string;
+};
+
+export type Args_Zatgo_coreAccountingJournalsGet = {
+  name: string;
+};
+
+export type Args_Zatgo_coreAccountingJournalsList = {
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingJournalsList_accounts_catalog = {
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingJournalsSubmit = {
+  name: string;
+};
+
+export type Args_Zatgo_coreAccountingPaymentsCreate_pay = {
+  purchase_invoice: string;
+  amount?: string;
+  mode_of_payment?: string;
+  posting_date?: string;
+  reference_no?: string;
+};
+
+export type Args_Zatgo_coreAccountingPaymentsCreate_receive = {
+  sales_invoice: string;
+  amount?: string;
+  mode_of_payment?: string;
+  posting_date?: string;
+  reference_no?: string;
+};
+
+export type Args_Zatgo_coreAccountingPaymentsGet = {
+  name: string;
+};
+
+export type Args_Zatgo_coreAccountingPaymentsList = {
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingPaymentsSubmit = {
+  name: string;
+};
+
+export type Args_Zatgo_coreAccountingPurchase_invoicesCreate = {
+  supplier: string;
+  items?: string;
+  company?: string;
+  posting_date?: string;
+  due_date?: string;
+  remarks?: string;
+};
+
+export type Args_Zatgo_coreAccountingPurchase_invoicesGet = {
+  name: string;
+};
+
+export type Args_Zatgo_coreAccountingPurchase_invoicesList = {
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingPurchase_invoicesSubmit = {
+  name: string;
+};
+
+export type Args_Zatgo_coreAccountingReportsGeneral_ledger = {
+  from_date?: string;
+  to_date?: string;
+  account?: string;
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingReportsOutstanding_payable = {
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingReportsOutstanding_receivable = {
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingReportsProfit_and_loss = {
+  from_date?: string;
+  to_date?: string;
+};
+
+export type Args_Zatgo_coreAccountingSuppliersCreate = {
+  supplier_name: string;
+  supplier_type?: string;
+  supplier_group?: string;
+  email?: string;
+  phone?: string;
+};
+
+export type Args_Zatgo_coreAccountingSuppliersGet = {
+  name: string;
+};
+
+export type Args_Zatgo_coreAccountingSuppliersList = {
+  page?: string;
+  page_size?: string;
+};
+
+export type Args_Zatgo_coreAccountingSuppliersUpdate = {
+  name: string;
+  values?: string;
 };
 
 export type Args_Zatgo_coreAdminHealthPing = Record<string, never>;
@@ -632,41 +887,86 @@ export type Args_Zatgo_coreWarehouseStockList = {
 
 export type WhitelistArgs = {
   "tracker.api.v1.activity.active": Args_TrackerActivityActive;
-  "tracker.api.v1.activity.next": Args_TrackerActivityNext;
+  "tracker.api.v1.activity.activity_types": Args_TrackerActivityActivity_types;
   "tracker.api.v1.activity.pause": Args_TrackerActivityPause;
   "tracker.api.v1.activity.running_now": Args_TrackerActivityRunning_now;
   "tracker.api.v1.activity.start": Args_TrackerActivityStart;
   "tracker.api.v1.activity.stop": Args_TrackerActivityStop;
+  "tracker.api.v1.audit.feed": Args_TrackerAuditFeed;
+  "tracker.api.v1.audit.list_for_doc": Args_TrackerAuditList_for_doc;
   "tracker.api.v1.filters.delete_preset": Args_TrackerFiltersDelete_preset;
   "tracker.api.v1.filters.get_presets": Args_TrackerFiltersGet_presets;
   "tracker.api.v1.filters.save_preset": Args_TrackerFiltersSave_preset;
   "tracker.api.v1.filters.set_last": Args_TrackerFiltersSet_last;
   "tracker.api.v1.hierarchy.assign": Args_TrackerHierarchyAssign;
+  "tracker.api.v1.hierarchy.assign_org_member": Args_TrackerHierarchyAssign_org_member;
   "tracker.api.v1.hierarchy.can_assign": Args_TrackerHierarchyCan_assign;
+  "tracker.api.v1.hierarchy.create_top_member": Args_TrackerHierarchyCreate_top_member;
   "tracker.api.v1.hierarchy.my_tree": Args_TrackerHierarchyMy_tree;
   "tracker.api.v1.hierarchy.org_tree": Args_TrackerHierarchyOrg_tree;
   "tracker.api.v1.hierarchy.seed_demo": Args_TrackerHierarchySeed_demo;
   "tracker.api.v1.hierarchy.seed_demo_work": Args_TrackerHierarchySeed_demo_work;
   "tracker.api.v1.hierarchy.update_employee_org": Args_TrackerHierarchyUpdate_employee_org;
   "tracker.api.v1.projects.add_member": Args_TrackerProjectsAdd_member;
+  "tracker.api.v1.projects.close_project": Args_TrackerProjectsClose_project;
   "tracker.api.v1.projects.create_project": Args_TrackerProjectsCreate_project;
   "tracker.api.v1.projects.get_project": Args_TrackerProjectsGet_project;
   "tracker.api.v1.projects.list_projects": Args_TrackerProjectsList_projects;
+  "tracker.api.v1.reports.hours_by_activity_type": Args_TrackerReportsHours_by_activity_type;
   "tracker.api.v1.reports.hours_by_project": Args_TrackerReportsHours_by_project;
+  "tracker.api.v1.reports.hours_by_task": Args_TrackerReportsHours_by_task;
+  "tracker.api.v1.reports.hours_by_timesheet": Args_TrackerReportsHours_by_timesheet;
   "tracker.api.v1.reports.hours_by_user": Args_TrackerReportsHours_by_user;
-  "tracker.api.v1.tasks.assign": Args_TrackerTasksAssign;
+  "tracker.api.v1.reports.hours_detail": Args_TrackerReportsHours_detail;
+  "tracker.api.v1.reports.overview": Args_TrackerReportsOverview;
+  "tracker.api.v1.tasks.approve": Args_TrackerTasksApprove;
   "tracker.api.v1.tasks.create_task": Args_TrackerTasksCreate_task;
   "tracker.api.v1.tasks.get_task": Args_TrackerTasksGet_task;
   "tracker.api.v1.tasks.list_tasks": Args_TrackerTasksList_tasks;
+  "tracker.api.v1.tasks.request_rework": Args_TrackerTasksRequest_rework;
+  "tracker.api.v1.tasks.set_progress": Args_TrackerTasksSet_progress;
+  "tracker.api.v1.tasks.submit_for_review": Args_TrackerTasksSubmit_for_review;
   "tracker.api.v1.tasks.update_status": Args_TrackerTasksUpdate_status;
   "tracker.api.v1.tickets.assign": Args_TrackerTicketsAssign;
   "tracker.api.v1.tickets.create_ticket": Args_TrackerTicketsCreate_ticket;
   "tracker.api.v1.tickets.get_ticket": Args_TrackerTicketsGet_ticket;
   "tracker.api.v1.tickets.list_tickets": Args_TrackerTicketsList_tickets;
+  "tracker.api.v1.timesheets.list_team_drafts": Args_TrackerTimesheetsList_team_drafts;
+  "tracker.api.v1.timesheets.submit_team": Args_TrackerTimesheetsSubmit_team;
+  "zatgo_core.api.v1.accounting.customers.create": Args_Zatgo_coreAccountingCustomersCreate;
+  "zatgo_core.api.v1.accounting.customers.get": Args_Zatgo_coreAccountingCustomersGet;
+  "zatgo_core.api.v1.accounting.customers.list": Args_Zatgo_coreAccountingCustomersList;
+  "zatgo_core.api.v1.accounting.customers.update": Args_Zatgo_coreAccountingCustomersUpdate;
+  "zatgo_core.api.v1.accounting.dashboard.summary": Args_Zatgo_coreAccountingDashboardSummary;
   "zatgo_core.api.v1.accounting.health.ping": Args_Zatgo_coreAccountingHealthPing;
   "zatgo_core.api.v1.accounting.health.status": Args_Zatgo_coreAccountingHealthStatus;
+  "zatgo_core.api.v1.accounting.invoices.create": Args_Zatgo_coreAccountingInvoicesCreate;
   "zatgo_core.api.v1.accounting.invoices.get": Args_Zatgo_coreAccountingInvoicesGet;
   "zatgo_core.api.v1.accounting.invoices.list": Args_Zatgo_coreAccountingInvoicesList;
+  "zatgo_core.api.v1.accounting.invoices.list_items_catalog": Args_Zatgo_coreAccountingInvoicesList_items_catalog;
+  "zatgo_core.api.v1.accounting.invoices.submit": Args_Zatgo_coreAccountingInvoicesSubmit;
+  "zatgo_core.api.v1.accounting.journals.create": Args_Zatgo_coreAccountingJournalsCreate;
+  "zatgo_core.api.v1.accounting.journals.get": Args_Zatgo_coreAccountingJournalsGet;
+  "zatgo_core.api.v1.accounting.journals.list": Args_Zatgo_coreAccountingJournalsList;
+  "zatgo_core.api.v1.accounting.journals.list_accounts_catalog": Args_Zatgo_coreAccountingJournalsList_accounts_catalog;
+  "zatgo_core.api.v1.accounting.journals.submit": Args_Zatgo_coreAccountingJournalsSubmit;
+  "zatgo_core.api.v1.accounting.payments.create_pay": Args_Zatgo_coreAccountingPaymentsCreate_pay;
+  "zatgo_core.api.v1.accounting.payments.create_receive": Args_Zatgo_coreAccountingPaymentsCreate_receive;
+  "zatgo_core.api.v1.accounting.payments.get": Args_Zatgo_coreAccountingPaymentsGet;
+  "zatgo_core.api.v1.accounting.payments.list": Args_Zatgo_coreAccountingPaymentsList;
+  "zatgo_core.api.v1.accounting.payments.submit": Args_Zatgo_coreAccountingPaymentsSubmit;
+  "zatgo_core.api.v1.accounting.purchase_invoices.create": Args_Zatgo_coreAccountingPurchase_invoicesCreate;
+  "zatgo_core.api.v1.accounting.purchase_invoices.get": Args_Zatgo_coreAccountingPurchase_invoicesGet;
+  "zatgo_core.api.v1.accounting.purchase_invoices.list": Args_Zatgo_coreAccountingPurchase_invoicesList;
+  "zatgo_core.api.v1.accounting.purchase_invoices.submit": Args_Zatgo_coreAccountingPurchase_invoicesSubmit;
+  "zatgo_core.api.v1.accounting.reports.general_ledger": Args_Zatgo_coreAccountingReportsGeneral_ledger;
+  "zatgo_core.api.v1.accounting.reports.outstanding_payable": Args_Zatgo_coreAccountingReportsOutstanding_payable;
+  "zatgo_core.api.v1.accounting.reports.outstanding_receivable": Args_Zatgo_coreAccountingReportsOutstanding_receivable;
+  "zatgo_core.api.v1.accounting.reports.profit_and_loss": Args_Zatgo_coreAccountingReportsProfit_and_loss;
+  "zatgo_core.api.v1.accounting.suppliers.create": Args_Zatgo_coreAccountingSuppliersCreate;
+  "zatgo_core.api.v1.accounting.suppliers.get": Args_Zatgo_coreAccountingSuppliersGet;
+  "zatgo_core.api.v1.accounting.suppliers.list": Args_Zatgo_coreAccountingSuppliersList;
+  "zatgo_core.api.v1.accounting.suppliers.update": Args_Zatgo_coreAccountingSuppliersUpdate;
   "zatgo_core.api.v1.admin.health.ping": Args_Zatgo_coreAdminHealthPing;
   "zatgo_core.api.v1.admin.health.status": Args_Zatgo_coreAdminHealthStatus;
   "zatgo_core.api.v1.admin.overview.get": Args_Zatgo_coreAdminOverviewGet;
