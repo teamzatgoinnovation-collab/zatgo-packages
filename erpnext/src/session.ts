@@ -270,11 +270,13 @@ export async function erpnextRequest(
     body: input.body ?? undefined,
   });
   const bodyText = await res.text();
+  const nextCsrf =
+    cookieValue(cookieHeader, "csrf_token") ?? session.csrfToken;
   return {
     ok: res.ok,
     status: res.status,
     bodyText,
-    session: { ...session, cookieHeader },
+    session: { ...session, cookieHeader, csrfToken: nextCsrf },
   };
 }
 
