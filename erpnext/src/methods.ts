@@ -98,7 +98,13 @@ export const ZatGoApi = {
     stockList: ZatGoCoreApi.warehouse.stock.list,
     stockGet: ZatGoCoreApi.warehouse.stock.get,
     itemsList: "zatgo_core.api.v1.warehouse.items.list",
+    itemsGet: "zatgo_core.api.v1.warehouse.items.get",
+    itemsCreate: "zatgo_core.api.v1.warehouse.items.create",
+    itemsUpdate: "zatgo_core.api.v1.warehouse.items.update",
     warehousesList: "zatgo_core.api.v1.warehouse.warehouses.list",
+    warehousesGet: "zatgo_core.api.v1.warehouse.warehouses.get",
+    warehousesCreate: "zatgo_core.api.v1.warehouse.warehouses.create",
+    warehousesUpdate: "zatgo_core.api.v1.warehouse.warehouses.update",
   },
   crm: {
     ping: ZatGoCoreApi.crm.health.ping,
@@ -140,6 +146,7 @@ export const ZatGoApi = {
     invoicesGet: ZatGoCoreApi.accounting.invoices.get,
     invoicesCreate: ZatGoCoreApi.accounting.invoices.create,
     invoicesSubmit: ZatGoCoreApi.accounting.invoices.submit,
+    invoicesGetZatcaQr: "zatgo_core.api.v1.accounting.invoices.get_zatca_qr",
     invoicesListItems: ZatGoCoreApi.accounting.invoices.listItemsCatalog,
     purchaseInvoicesList: ZatGoCoreApi.accounting.purchaseInvoices.list,
     purchaseInvoicesGet: ZatGoCoreApi.accounting.purchaseInvoices.get,
@@ -189,5 +196,11 @@ export const ZatGoApi = {
     status: ZatGoCoreApi.documentation.health.status,
     metaList: ZatGoCoreApi.documentation.meta.list,
     metaGet: ZatGoCoreApi.documentation.meta.get,
+  },
+  settings: {
+    getCompanySettings: ZatGoCoreApi.settings.getCompanySettings,
+    saveSettings: ZatGoCoreApi.settings.saveSettings,
+    getSystemSettings: ZatGoCoreApi.settings.getSystemSettings,
+    clearCache: ZatGoCoreApi.settings.clearCache,
   },
 } as const;
