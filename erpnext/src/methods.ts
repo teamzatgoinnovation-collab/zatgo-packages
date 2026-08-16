@@ -181,6 +181,7 @@ export const ZatGoApi = {
     reportsGeneralLedger: ZatGoCoreApi.accounting.reports.generalLedger,
     reportsProfitAndLoss: ZatGoCoreApi.accounting.reports.profitAndLoss,
     reportsPartyLedger: "zatgo_core.api.v1.accounting.reports.party_ledger",
+    reportsTrialBalance: "zatgo_core.api.v1.accounting.reports.trial_balance",
   },
   customerPortal: {
     ping: ZatGoCoreApi.customerPortal.health.ping,
