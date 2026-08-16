@@ -22,6 +22,9 @@ export type ErpnextLoginCardProps = {
   onPwdChange: (value: string) => void;
   onSubmit: (e: FormEvent) => void;
   onTestSite?: () => void;
+  /** Optional editable site URL field, shown above Email/User when provided. */
+  siteUrl?: string;
+  onSiteUrlChange?: (value: string) => void;
 };
 
 /**
@@ -41,6 +44,8 @@ export function ErpnextLoginCard({
   onPwdChange,
   onSubmit,
   onTestSite,
+  siteUrl,
+  onSiteUrlChange,
 }: ErpnextLoginCardProps) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[var(--color-background)] px-4 text-[var(--color-foreground)]">
@@ -55,6 +60,18 @@ export function ErpnextLoginCard({
         <Card>
           <CardContent className="p-5">
             <form onSubmit={onSubmit} className="space-y-4">
+              {onSiteUrlChange ? (
+                <div className="space-y-1.5">
+                  <Label htmlFor="zatgo-login-site-url">Site URL</Label>
+                  <Input
+                    id="zatgo-login-site-url"
+                    value={siteUrl ?? ""}
+                    onChange={(e) => onSiteUrlChange(e.target.value)}
+                    placeholder="https://your-site.example.com"
+                    autoComplete="url"
+                  />
+                </div>
+              ) : null}
               <div className="space-y-1.5">
                 <Label htmlFor="zatgo-login-usr">Email / User</Label>
                 <Input

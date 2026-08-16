@@ -91,6 +91,7 @@ export const ZatGoCoreApi = {
         },
     invoices: {
       create: "zatgo_core.api.v1.accounting.invoices.create",
+      createReturn: "zatgo_core.api.v1.accounting.invoices.create_return",
       get: "zatgo_core.api.v1.accounting.invoices.get",
       list: "zatgo_core.api.v1.accounting.invoices.list",
       listItemsCatalog: "zatgo_core.api.v1.accounting.invoices.list_items_catalog",
@@ -112,6 +113,7 @@ export const ZatGoCoreApi = {
         },
     purchaseInvoices: {
       create: "zatgo_core.api.v1.accounting.purchase_invoices.create",
+      createReturn: "zatgo_core.api.v1.accounting.purchase_invoices.create_return",
       get: "zatgo_core.api.v1.accounting.purchase_invoices.get",
       list: "zatgo_core.api.v1.accounting.purchase_invoices.list",
       submit: "zatgo_core.api.v1.accounting.purchase_invoices.submit",
@@ -397,6 +399,7 @@ export const WhitelistMethods = {
   accountingHealthPing: "zatgo_core.api.v1.accounting.health.ping",
   accountingHealthStatus: "zatgo_core.api.v1.accounting.health.status",
   accountingInvoicesCreate: "zatgo_core.api.v1.accounting.invoices.create",
+  accountingInvoicesCreateReturn: "zatgo_core.api.v1.accounting.invoices.create_return",
   accountingInvoicesGet: "zatgo_core.api.v1.accounting.invoices.get",
   accountingInvoicesList: "zatgo_core.api.v1.accounting.invoices.list",
   accountingInvoicesListItemsCatalog: "zatgo_core.api.v1.accounting.invoices.list_items_catalog",
@@ -412,6 +415,7 @@ export const WhitelistMethods = {
   accountingPaymentsList: "zatgo_core.api.v1.accounting.payments.list",
   accountingPaymentsSubmit: "zatgo_core.api.v1.accounting.payments.submit",
   accountingPurchaseInvoicesCreate: "zatgo_core.api.v1.accounting.purchase_invoices.create",
+  accountingPurchaseInvoicesCreateReturn: "zatgo_core.api.v1.accounting.purchase_invoices.create_return",
   accountingPurchaseInvoicesGet: "zatgo_core.api.v1.accounting.purchase_invoices.get",
   accountingPurchaseInvoicesList: "zatgo_core.api.v1.accounting.purchase_invoices.list",
   accountingPurchaseInvoicesSubmit: "zatgo_core.api.v1.accounting.purchase_invoices.submit",
