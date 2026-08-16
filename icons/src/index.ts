@@ -66,4 +66,5 @@ export {
   Building2,
   Layers,
   Newspaper,
+  Tags,
 } from "lucide-react";
