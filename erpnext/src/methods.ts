@@ -171,6 +171,7 @@ export const ZatGoApi = {
     journalsSubmit: ZatGoCoreApi.accounting.journals.submit,
     journalsCancel: "zatgo_core.api.v1.accounting.journals.cancel",
     journalsListAccounts: ZatGoCoreApi.accounting.journals.listAccountsCatalog,
+    journalsListCostCenters: "zatgo_core.api.v1.accounting.journals.list_cost_centers_catalog",
     reportsOutstandingReceivable: ZatGoCoreApi.accounting.reports.outstandingReceivable,
     reportsOutstandingPayable: ZatGoCoreApi.accounting.reports.outstandingPayable,
     reportsGeneralLedger: ZatGoCoreApi.accounting.reports.generalLedger,
