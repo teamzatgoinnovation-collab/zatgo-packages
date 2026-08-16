@@ -17,11 +17,11 @@ function resolveDark(mode: ThemeMode): boolean {
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }
 
-export function createThemeStore(storageKey = "zatgo-theme") {
+export function createThemeStore(storageKey = "zatgo-theme", initialMode: ThemeMode = "system") {
   return create<ThemeState>()(
     persist(
       (set, get) => ({
-        mode: "system",
+        mode: initialMode,
         setMode: (mode) => {
           set({ mode });
           get().apply();
