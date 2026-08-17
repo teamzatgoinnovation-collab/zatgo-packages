@@ -181,6 +181,8 @@ export const ZatGoApi = {
     journalsListAccounts: ZatGoCoreApi.accounting.journals.listAccountsCatalog,
     journalsListCostCenters: "zatgo_core.api.v1.accounting.journals.list_cost_centers_catalog",
     journalsGetPdf: "zatgo_core.api.v1.accounting.journals.pdf",
+    journalsCreateSplitReceive: "zatgo_core.api.v1.accounting.journals.create_split_receive_entry",
+    journalsCreateSplitPay: "zatgo_core.api.v1.accounting.journals.create_split_pay_entry",
     accountsList: "zatgo_core.api.v1.accounting.accounts.list",
     accountsBalance: "zatgo_core.api.v1.accounting.accounts.balance",
     accountsCreate: "zatgo_core.api.v1.accounting.accounts.create",
