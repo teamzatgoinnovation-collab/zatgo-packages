@@ -163,6 +163,8 @@ export const ZatGoApi = {
     paymentsCreateReceive: ZatGoCoreApi.accounting.payments.createReceive,
     paymentsCreatePay: ZatGoCoreApi.accounting.payments.createPay,
     paymentsCreateContra: "zatgo_core.api.v1.accounting.payments.create_contra",
+    paymentsCreateReceiveAdvance: "zatgo_core.api.v1.accounting.payments.create_receive_advance",
+    paymentsCreatePayAdvance: "zatgo_core.api.v1.accounting.payments.create_pay_advance",
     paymentsSubmit: ZatGoCoreApi.accounting.payments.submit,
     paymentsCancel: "zatgo_core.api.v1.accounting.payments.cancel",
     journalsList: ZatGoCoreApi.accounting.journals.list,
