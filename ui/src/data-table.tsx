@@ -2,12 +2,14 @@ import {
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
+  getPaginationRowModel,
   useReactTable,
   type ColumnDef,
 } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 import { Skeleton } from "./skeleton";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./table";
+import { Button } from "./button";
 import { cn } from "./lib/cn";
 
 export function DataTable<T>({
@@ -17,6 +19,7 @@ export function DataTable<T>({
   emptyMessage = "No rows",
   loading,
   empty,
+  pageSize,
 }: {
   data: T[];
   columns: ColumnDef<T, unknown>[];
@@ -24,6 +27,8 @@ export function DataTable<T>({
   emptyMessage?: string;
   loading?: boolean;
   empty?: ReactNode;
+  /** Opt-in client-side pagination over `data` — rows per page. Omit to render all rows (previous behavior). */
+  pageSize?: number;
 }) {
   const table = useReactTable({
     data,
@@ -32,6 +37,12 @@ export function DataTable<T>({
     onGlobalFilterChange: () => undefined,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
+    ...(pageSize
+      ? {
+          getPaginationRowModel: getPaginationRowModel(),
+          initialState: { pagination: { pageSize } },
+        }
+      : {}),
   });
 
   if (loading) {
@@ -80,6 +91,26 @@ export function DataTable<T>({
           )}
         </TableBody>
       </Table>
+      {pageSize && table.getPageCount() > 1 ? (
+        <div className="flex items-center justify-between border-t border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-muted-foreground)]">
+          <span>
+            Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+          </span>
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              disabled={!table.getCanPreviousPage()}
+              onClick={() => table.previousPage()}
+            >
+              Previous
+            </Button>
+            <Button variant="outline" size="sm" disabled={!table.getCanNextPage()} onClick={() => table.nextPage()}>
+              Next
+            </Button>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
