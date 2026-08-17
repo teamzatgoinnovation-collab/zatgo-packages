@@ -99,12 +99,15 @@ function cookieValue(cookieHeader: string, name: string): string | null {
   return null;
 }
 
+/** Default network timeout for every ERPNext call made from the Electron main process. */
+const DEFAULT_TIMEOUT_MS = 20_000;
+
 async function siteFetch(
   baseUrl: string,
   path: string,
-  init: RequestInit & { cookieHeader?: string; csrfToken?: string } = {},
+  init: RequestInit & { cookieHeader?: string; csrfToken?: string; timeoutMs?: number } = {},
 ): Promise<{ res: Response; cookieHeader: string }> {
-  const { cookieHeader = "", csrfToken = "", ...rest } = init;
+  const { cookieHeader = "", csrfToken = "", timeoutMs = DEFAULT_TIMEOUT_MS, ...rest } = init;
   const headers = new Headers(rest.headers);
   headers.set("Accept", "application/json");
   if (cookieHeader) headers.set("Cookie", cookieHeader);
@@ -112,7 +115,15 @@ async function siteFetch(
     headers.set("X-Frappe-CSRF-Token", csrfToken);
   }
 
-  const res = await fetch(`${baseUrl}${path}`, { ...rest, headers });
+  let res: Response;
+  try {
+    res = await fetch(`${baseUrl}${path}`, { ...rest, headers, signal: AbortSignal.timeout(timeoutMs) });
+  } catch (error) {
+    if (error instanceof Error && error.name === "TimeoutError") {
+      throw new Error(`Timed out connecting to ${baseUrl} — check the site URL and your network connection.`);
+    }
+    throw error;
+  }
   const nextCookies = mergeCookieHeader(cookieHeader, parseSetCookies(res.headers));
   return { res, cookieHeader: nextCookies };
 }
@@ -128,6 +139,7 @@ export async function erpnextPing(
     const res = await fetch(`${url}/api/method/ping`, {
       method: "GET",
       headers: { Accept: "application/json" },
+      signal: AbortSignal.timeout(DEFAULT_TIMEOUT_MS),
     });
     if (!res.ok) return { ok: false, message: `HTTP ${res.status}` };
     const body = (await res.json()) as { message?: string };
