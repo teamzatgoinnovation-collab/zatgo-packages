@@ -3,6 +3,7 @@
  * Add brand logos under ./brand when needed (GitHub, Google, etc.).
  */
 export {
+  ArrowLeftRight,
   ArrowRight,
   Banknote,
   BarChart3,
