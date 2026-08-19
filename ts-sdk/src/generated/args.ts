@@ -342,8 +342,7 @@ export type Args_Zatgo_coreAccountingJournalsList = {
 };
 
 export type Args_Zatgo_coreAccountingJournalsList_accounts_catalog = {
-  page?: string;
-  page_size?: string;
+  company?: string;
 };
 
 export type Args_Zatgo_coreAccountingJournalsSubmit = {
