@@ -3,6 +3,7 @@
  * Add brand logos under ./brand when needed (GitHub, Google, etc.).
  */
 export {
+  ArrowLeft,
   ArrowLeftRight,
   ArrowRight,
   Banknote,
@@ -17,6 +18,7 @@ export {
   PanelLeft,
   ClipboardList,
   CookingPot,
+  Copy,
   CreditCard,
   Database,
   Download,
@@ -37,6 +39,7 @@ export {
   Minus,
   Moon,
   Monitor,
+  MoreHorizontal,
   Package,
   Pause,
   Percent,
@@ -57,6 +60,7 @@ export {
   Sun,
   Table2,
   Trash2,
+  TriangleAlert,
   Truck,
   User,
   Users,

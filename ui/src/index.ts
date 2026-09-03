@@ -49,6 +49,7 @@ export {
   DropdownMenuTrigger,
 } from "./dropdown-menu";
 export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from "./popover";
+export { Combobox, type ComboboxOption } from "./combobox";
 export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./tooltip";
 export { Separator } from "./separator";
 export { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
@@ -91,3 +92,5 @@ export {
   useThemeStore,
   type ThemeMode,
 } from "./theme-store";
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./accordion";
+export { ToggleGroup, ToggleGroupItem } from "./toggle-group";
