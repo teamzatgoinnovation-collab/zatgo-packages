@@ -429,6 +429,7 @@ export type Args_Zatgo_coreAccountingSuppliersCreate = {
   supplier_group?: string;
   email?: string;
   phone?: string;
+  cr_number?: string;
 };
 
 export type Args_Zatgo_coreAccountingSuppliersGet = {
